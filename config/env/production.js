@@ -34,5 +34,6 @@ module.exports = {
   // log: {
   //   level: "silent"
   // }
-
+  jwtSecret: 'mysuperprodsecret',
+  jwtExpires: 30
 };
