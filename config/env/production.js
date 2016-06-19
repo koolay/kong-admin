@@ -35,5 +35,6 @@ module.exports = {
   //   level: "silent"
   // }
   jwtSecret: 'mysuperprodsecret',
-  jwtExpires: 30
+  jwtExpires: 90000,
+  kongApi: 'http://127.0.0.1:8001'
 };

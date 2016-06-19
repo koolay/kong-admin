@@ -12,12 +12,12 @@
 
   <body>
       <div class="ui grid container" style="margin-top: 50px;">
-          <div class="four wide column">
+          <div class="three wide column">
             <div class="ui label">
             Welcome <%=req.user.username %> !
             <a href="/logout"><i class="power icon"></i>logout</a>
             </div>
-              <div class="ui vertical menu">
+              <div class="ui vertical menu" style="width:180px;">
                   <div class="item">
                       <div class="header">接  口</div>
                       <div class="menu">
@@ -42,15 +42,17 @@
                   </div>
               </div>
           </div>
-          <div class="twelve wide stretched column">
+          <div class="thirteen wide stretched column">
               <!-- Site content !-->
               <%- body %>
           </div>
       </div>
     <!--TEMPLATES-->
+    
     <!--TEMPLATES END-->
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/jquery.min.js"></script>
     <!--SCRIPTS END-->
     <script src="/semantic/semantic.min.js"></script>
     <script type="text/javascript">

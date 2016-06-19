@@ -89,7 +89,13 @@ module.exports.views = {
   *                                                                           *
   ****************************************************************************/
 
-  partials: false
+  partials: false,
 
+  locals: {
+      toDate: function(timestamp) {
+          var moment = require('moment');
+          return moment.unix(timestamp/1000).format('YYYY-MM-DD HH:mm:ss');
+      }
+  }
 
 };

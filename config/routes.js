@@ -9,6 +9,6 @@ module.exports.routes = {
   '/profile': 'PageController.profile',
 
   // Endpoints
-  'post /login': 'UserController.login',
-  'post /signup': 'UserController.signup',
+  'post /login': 'UsersController.login',
+  'post /signup': 'UsersController.signup',
 };
