@@ -6,6 +6,8 @@
  */
 
 module.exports = {
-	
+    find: function(req, res) {
+        return res.ok('api list');
+    }
 };
 

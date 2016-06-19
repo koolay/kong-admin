@@ -8,6 +8,34 @@
 module.exports = {
 
   attributes: {
+      name: {
+          type: 'string',
+          required: true,
+          unique: true
+      },
+      request_host: {
+          type: 'string',
+          required: true
+      },
+      request_path: {
+          type: 'string',
+          required: true,
+      },
+      strip_request_path: {
+          type: 'boolean',
+          required: false,
+          defaultsTo:false
+      },
+      preserve_host: {
+          type: 'boolean',
+          required: false,
+          defaultsTo:false
+
+      },
+      upstream_url: {
+          type: 'string',
+          required: true,
+      }
 
   }
 };

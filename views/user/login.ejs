@@ -9,7 +9,6 @@
 <!--STYLES-->
 <link rel="stylesheet" href="/styles/importer.css">
 <!--STYLES END-->
-
 <link rel="stylesheet" href="/semantic/semantic.min.css">
   <style type="text/css">
     body {
@@ -130,9 +129,13 @@
         password: $('input[name=password]').val()
       }),
       // If the login is successful, save the JWT token and load the home page
-      success: function(newToken) {
-        jwtToken = newToken;
-        gotoPage('/');
+      success: function(result) {
+          if (result.result) {
+              console.log(result.data);
+            window.location.href='/';
+          } else {
+              alert(result.msg);
+          }
       },
       // If not, update the "errors" section on the page
       error: function(jqXHR, text) {

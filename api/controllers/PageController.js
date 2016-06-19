@@ -7,14 +7,7 @@
 
 module.exports = {
   main: function (req, res) {
-    if (req.user || req.wantsJSON) {return res.redirect('/home');}
-    return res.redirect('/login');
-  },
-	home: function (req, res) {
-    return res.view('homepage');
-  },
-  welcome: function (req, res) {
-    return res.view('user/welcome');
+    return res.view('main');
   },
   login: function(req, res) {
     if (req.user) {return res.redirect('/home');}
