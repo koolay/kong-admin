@@ -1,3 +1,7 @@
+{% extends 'layout.swig' %}
+{% set title = 'Page Not Found' %}
+{% block body %}
+
 <!--
 
 
@@ -66,3 +70,4 @@
       </div>
     </div>
 
+{% endblock %}

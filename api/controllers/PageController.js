@@ -17,7 +17,7 @@ module.exports = {
     return res.view('user/logout');
   },
   signup: function(req, res) {
-    return res.view('user/signup');
+    return res.view('user/signup', {layout:null});
   },
   profile: function(req, res) {
     return res.view('user/profile');

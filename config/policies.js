@@ -23,12 +23,12 @@ module.exports.policies = {
 
   PageController: {
     '*': 'checkForUser',
-    'login': true,
-    'logout': true,
-    'signup': true,
+    login: true,
+    logout: true,
+    signup: true,
   },
 
-  UserController: {
+  UsersController: {
     login: true,
     signup: true
   }
