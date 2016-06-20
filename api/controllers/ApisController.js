@@ -17,7 +17,7 @@ module.exports = {
         });
     },
 
-
+    //DELETE /apis/<id>
     destroy: function(req, res) {
         id = req.param('id');
         if (!id) {
@@ -35,6 +35,7 @@ module.exports = {
         });
     },
 
+    //POST /apis
     create: function(req, res) {
         axios.post(sails.config.kongApi + '/apis/', {
             name: req.param('name'),
@@ -54,6 +55,10 @@ module.exports = {
                 return res.json({result: false, msg: JSON.stringify(error.data), code: error.status});
               }
         });
+    },
+
+    update: function(req, res) {
+
     }
 };
 
