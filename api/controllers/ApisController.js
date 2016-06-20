@@ -45,14 +45,13 @@ module.exports = {
             upstream_url: req.param('upstream_url')
         })
         .then(function(response){
-            console.log(response);
-           return res.json({result: true, data: JSON.stringify(response)});
+           return res.json({result: true, data: JSON.stringify(response.data)});
         })
         .catch(function(error){
             if (error instanceof Error) {
                 return res.json({result: false, msg: 'server error'});
               } else {
-                return res.json({result: false, msg: error.data.name, code: error.status});
+                return res.json({result: false, msg: JSON.stringify(error.data), code: error.status});
               }
         });
     }
