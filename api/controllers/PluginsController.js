@@ -4,12 +4,20 @@
  * @description :: Server-side logic for managing plugins
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+var async = require('async');
 
 module.exports = {
 
     find: function(req, res) {
-           KongApiService.get('/plugins', function(response) {
+        KongApiService.get('/plugins', function(response) {
+            async.each(response.data.data, function(item, callback){
+                KongApiService.get('/apis/'+item.api_id, function(data) {
+                    item.api_name = data.data.name;
+                    callback();
+                });
+            }, function(error){
                 return res.view('plugins', response);
+            });
         });
     },
 

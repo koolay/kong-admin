@@ -17,7 +17,7 @@
   {% for item in data.data %}
       <tr>
           <td>{{item.name}}</td>
-          <td>{{item.api_name}}</td>
+          <td><a href="/admin/updateApi/{{item.api_id}}" target="_self">{{item.api_name}}</a></td>
           <td>{% if item.enabled %} 启用 {% else %} 禁用 {% endif %}</td>
           <td>{{item.Config}}</td>
           <td>{{toDate(item.created_at) }}</td>
