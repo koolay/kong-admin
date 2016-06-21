@@ -30,16 +30,15 @@
             <div class="item">
                 <div class="header">接口用户</div>
                 <div class="menu">
-                    <a class="item">用户列表</a>
-                    <a class="item">Python</a>
-                    <a class="item active">PHP</a>
+                    <a class="item" href="/consumers">用户列表</a>
+                    <a class="item" href="/admin/consumer">添加用户</a>
                 </div>
             </div>
             <div class="item">
                 <div class="header">插件</div>
                 <div class="menu">
-                    <a class="item">插件列表</a>
-                    <a class="item">添加插件</a>
+                    <a class="item" href="/plugins">插件列表</a>
+                    <a class="item" href="/admin/plugin">添加插件</a>
                 </div>
             </div>
         </div>
