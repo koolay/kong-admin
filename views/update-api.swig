@@ -1,34 +1,34 @@
 {% extends 'layout.swig' %}
-{% set title = 'Add API' %}
+{% set title = 'Update API' %}
 {% block body %}
 
 <form method="post" class="ui form segment">
-  <h2>添加接口</h2>
+  <h2>修改接口</h2>
   <div class="field">
-     <input placeholder="Name" name="name" type="text" >
+     <input placeholder="Name" name="name" type="text" value="{{ name }}">
   </div>
   <div class="field">
-    <input placeholder="Request path" name="request_path" type="text" >
+    <input placeholder="Request path" name="request_path" type="text" value="{{request_path}}">
   </div>
   <div class="field">
-    <input placeholder="Upstream url" name="upstream_url" type="text" >
+    <input placeholder="Upstream url" name="upstream_url" type="text" value="{{upstream_url}}">
   </div>
   <div class="two fields">
     <div class="field">
         <div class="ui checkbox">
-          <input type="checkbox" name="strip_request_path">
+          <input type="checkbox" name="strip_request_path" {% if strip_request_path %} checked {% endif %}>
           <label>Strip request path</label>
         </div>
     </div>
     <div class="field">
         <div class="ui checkbox">
-          <input type="checkbox" name="preserve_host">
+          <input type="checkbox" name="preserve_host" {% if preserve_host %} checked {% endif %}>
           <label>Preserve host</label>
         </div>
     </div>
   </div>
   <div class="ui blue button" onclick="save()">保存</div>
-
+  <input type="hidden" value="{{ req.param('id') }}" name="id" />
 </form>
 
 {% endblock %}
@@ -79,8 +79,9 @@ function save() {
    $('.ui.form').form(rules).form('validate form');
 }
 function success() {
-    axios.post('/apis', $('.ui.form').form('get values')
-     )
+    var formData = $('.ui.form').form('get values');
+    var id = $('.ui.form').form('get value', 'id');
+    axios.put('/apis/' + id, formData)
     .then(function(response) {
         if (response.data.result) {
             ui.alert('success', 'success', response.data.data);
@@ -89,7 +90,7 @@ function success() {
          }
     })
     .catch(function(err) {
-        ui.alert('fail', 'Fail', '添加失败');
+        ui.alert('fail', 'Fail', '修改失败');
     });
 
 }

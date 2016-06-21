@@ -1,42 +1,52 @@
 
 var axios = require('axios');
+var kongApi = sails.config.kongApi;
 
 var errorHandle = function(error) {
   if (error instanceof Error) {
-    return res.json({result: false, msg: 'server error'});
+    return {result: false, msg: 'server error'};
   } else {
-    return res.json({result: false, msg: JSON.stringify(error.data), code: error.status});
+    return {result: false, msg: JSON.stringify(error.data), code: error.status};
   }
 
 };
 var KongApiService = {
-    get: function(api) {
-        axios.get(api)
+    get: function(apiPath, cb) {
+        axios.get(kongApi + apiPath)
         .then(function (response) {
-           return res.view('apis', response);
+           cb(response);
         })
         .catch(function (error) {
-            console.log(error);
+            cb(errorHandle(error));
         });
 
     },
-    post: function(api, param) {
-        axios.post(api, param)
+    patch: function(apiPath, param, cb) {
+        axios.patch(kongApi + apiPath, param)
         .then(function(response){
-           return res.json({result: true, data: JSON.stringify(response.data)});
+            cb({result: true, data: JSON.stringify(response.data)});
         })
         .catch(function(error){
-            return errorHandle(error);
+            cb(errorHandle(error));
         });
 
     },
-    delete: function(api) {
+    post: function(apiPath, param, cb) {
+        axios.post(kongApi + apiPath, param)
+        .then(function(response){
+            cb({result: true, data: JSON.stringify(response.data)});
+        })
+        .catch(function(error){
+            cb(errorHandle(error));
+        });
 
-        axios.delete(api)
+    },
+    delete: function(apiPath, cb) {
+        axios.delete(kongApi + apiPath)
         .then(function(response) {
-            return res.json({result: true});
+            cb({result: true});
         }).catch(function(error){
-            return errorHandle(error);
+            cb(errorHandle(error));
         });
     },
 

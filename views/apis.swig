@@ -22,6 +22,7 @@
           <td>{{item.request_path }}</td>
           <td>{{toDate(item.created_at) }}</td>
           <td><a href="javascript:void(0)" onclick="deleteApi('{{item.id}}', '{{item.name}}')">删除</a></td>
+          <td><a href="/admin/updateApi/{{item.id}}" >修改</a></td>
       </tr>
   {% endfor %}
   </tbody>
