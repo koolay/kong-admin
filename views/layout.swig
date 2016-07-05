@@ -15,44 +15,28 @@
 </head>
 
 <body>
-<div class="ui grid" style="margin-top: 50px;">
-    <div class="one wide column"></div>
-    <div class="three wide column">
-        <div class="ui label">
-            Welcome <%= req.user.username %>!
-            <a href="/logout"><i class="power icon"></i>logout</a>
-        </div>
-        <div class="ui vertical menu">
-            <div class="item">
-                <div class="header">接  口</div>
-                <div class="menu">
-                    <a class="item" href="/apis">接口列表</a>
-                    <a class="item" href="/apis/add">添加接口</a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="header">接口用户</div>
-                <div class="menu">
+
+<div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+        <div class="ui large secondary inverted pointing menu">
+                    <a class="active item" href="/apis">接口列表</a>
                     <a class="item" href="/consumers">用户列表</a>
-                    <a class="item" href="/consumers/add">添加用户</a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="header">插件</div>
-                <div class="menu">
                     <a class="item" href="/plugins">插件列表</a>
-                    <a class="item" href="/plugins/add">添加插件</a>
-                </div>
+            <div class="right item">
+                <a class="ui inverted button">Log in</a>
+                <a class="ui inverted button">Sign Up</a>
             </div>
         </div>
     </div>
-    <div class="ten wide stretched column">
+
+  </div>
+<div class="ui vertical stripe segment" style="margin-top: 50px;">
+    <div class="ui container">
         <!-- Site content !-->
         {% block body %}{% endblock %}
         {% include 'partials/alerts.swig' %}
-
     </div>
-    <div class="one wide column"></div>
 </div>
 <!--TEMPLATES-->
 

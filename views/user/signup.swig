@@ -135,7 +135,7 @@ function signup() {
    $('.ui.form').form(rules).form('validate form');
 }
 function success() {
-    axios.post('/signup', $('.ui.form').form('get values')
+    axios.post('/api/signup', $('.ui.form').form('get values')
      )
     .then(function(response) {
         if (response.data.result) {

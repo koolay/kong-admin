@@ -7,10 +7,11 @@
 <h3 class="ui header">接口列表</h3>
 <vuetable
     api-url="/api/apis"
+    :pagination-component="paginationComponent"
     table-wrapper="#content"
     :fields="columns"
     :item-actions="itemActions"
-    :query-params="{ page: 'pageNo', perPage: 'pagesize'}"
+    :per-page="perPage"
 ></vuetable>
 
 </div>

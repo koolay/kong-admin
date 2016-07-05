@@ -3,7 +3,8 @@
     exports.apis = new Vue({
         el: '#apis',
         data: {
-            pagesize: 2,
+            perPage: 20,
+            paginationComponent: 'vuetable-pagination-dropdown',
             columns: [
                 'name',
                 'upstream_url',
@@ -31,6 +32,8 @@
 
         },
         methods: {
+            formatDate: function(value, fmt) {
+            },
             viewProfile: function(id) {
                 console.log('view profile with id:', id)
             },

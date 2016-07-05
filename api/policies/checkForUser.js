@@ -16,7 +16,6 @@ module.exports = function(req, res, next) {
     } else {
         token = req.cookies.token;
     }
-    console.log(token);
     // Check for a JWT token in the header
     if (token) {
         return jwt.verify(token, sails.config.jwtSecret, function(err, payload) {
