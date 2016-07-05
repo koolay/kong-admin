@@ -22,5 +22,5 @@ module.exports = {
   // }
   jwtSecret: 'mysuperdevsecret',
   jwtExpires: 90000,
-  kongApi: 'http://192.168.1.102:8001'
+  kongApi: 'http://test.mypaas.com.cn:10081'
 };

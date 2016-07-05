@@ -8,8 +8,17 @@ var axios = require('axios');
 
 module.exports = {
     find: function(req, res) {
-           KongApiService.get('/apis', function(response) {
-                return res.view('apis', response);
+        KongApiService.get('/apis', function(response) {
+            return res.json({
+                links: {
+                    pagination: {
+                        total: response.data.total,
+                        per_page: 2,
+                        current_page: 1
+                    }
+                },
+                data: response.data.data
+            });
         });
     },
 
@@ -17,7 +26,10 @@ module.exports = {
     destroy: function(req, res) {
         id = req.param('id');
         if (!id) {
-            return res.json(404, {result: false, msg:'id not found'});
+            return res.json(404, {
+                result: false,
+                msg: 'id not found'
+            });
         }
         KongApiService.delete('/apis/' + id, function(response) {
             return res.json(response);
@@ -34,7 +46,7 @@ module.exports = {
             preserve_host: req.param('preserve_host') == true,
             upstream_url: req.param('upstream_url')
         };
-        KongApiService.post('/apis', param, function(response){
+        KongApiService.post('/apis', param, function(response) {
             return res.json(response);
         });
     },
@@ -42,7 +54,10 @@ module.exports = {
     update: function(req, res) {
         var id = req.param('id');
         if (!id) {
-             return res.json({result: false, msg: 'id is null'});
+            return res.json({
+                result: false,
+                msg: 'id is null'
+            });
         }
         var param = {
             name: req.param('name'),
@@ -52,9 +67,8 @@ module.exports = {
             preserve_host: req.param('preserve_host') == true,
             upstream_url: req.param('upstream_url')
         };
-        KongApiService.patch('/apis/' + id, param, function(response){
+        KongApiService.patch('/apis/' + id, param, function(response) {
             return res.json(response);
         });
     }
 };
-

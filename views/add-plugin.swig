@@ -4,9 +4,11 @@
 
 <form method="post" class="ui form segment">
   <h2>添加插件</h2>
+  <label>插件名称</label>
   <div class="field">
-     <input placeholder="Name" name="name" type="text" >
+     {% include 'partials/plugin-select.swig' %}
   </div>
+  <label>接口名称</label>
   <div class="field">
     <input placeholder="Api name" name="api" type="text" >
   </div>
@@ -23,8 +25,8 @@ var rules = {
     inline : true,
     on     : 'blur',
     fields : {
-       name: {
-            identifier  : 'name',
+       plugin: {
+            identifier  : 'plugin',
             rules: [
               {
                 type   : 'regExp[/^[a-z0-9_-]{3,50}$/]',

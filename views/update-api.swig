@@ -4,12 +4,15 @@
 
 <form method="post" class="ui form segment">
   <h2>修改接口</h2>
+  <label>name</label>
   <div class="field">
      <input placeholder="Name" name="name" type="text" value="{{ name }}">
   </div>
+  <label>request path</label>
   <div class="field">
     <input placeholder="Request path" name="request_path" type="text" value="{{request_path}}">
   </div>
+  <label>upstream url</label>
   <div class="field">
     <input placeholder="Upstream url" name="upstream_url" type="text" value="{{upstream_url}}">
   </div>

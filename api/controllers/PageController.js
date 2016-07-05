@@ -21,6 +21,32 @@ module.exports = {
   },
   profile: function(req, res) {
     return res.view('user/profile');
-  }
+  },
+
+  apis: function(req, res) {
+      return res.view('apis');
+  },
+  addApi: function(req,res) {
+      return res.view('add-api');
+  },
+  updateApi: function(req,res) {
+      return res.view('update-api');
+  },
+  plugins: function(req, res) {
+      return res.view('plugins');
+  },
+  addPlugin: function(req, res) {
+      return res.view('add-plugin');
+  },
+  consumers: function(req, res) {
+       return res.view('consumers');
+  },
+  addConsumer: function(req, res) {
+      return res.view('add-consumer');
+  },
+  updateConsumer: function(req, res) {
+      return res.view('update-consumer');
+  },
+
 };
 

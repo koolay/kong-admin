@@ -4,12 +4,15 @@
 
 <form method="post" class="ui form segment">
   <h2>添加接口</h2>
+  <label>name</label>
   <div class="field">
      <input placeholder="Name" name="name" type="text" >
   </div>
+  <label>request path</label>
   <div class="field">
     <input placeholder="Request path" name="request_path" type="text" >
   </div>
+  <label>upstream url</label>
   <div class="field">
     <input placeholder="Upstream url" name="upstream_url" type="text" >
   </div>

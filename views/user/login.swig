@@ -50,7 +50,7 @@
                         <input type="password" name="password" placeholder="Password">
                     </div>
                 </div>
-                <div id="submitLogin" class="ui fluid large teal submit button">Login</div>
+                <div id="submitLogin" class="ui fluid large teal submit button">登录</div>
             </div>
 
             <div class="ui error message"></div>
@@ -58,7 +58,7 @@
         </form>
 
         <div class="ui message">
-            New to us? <a href="#">Sign Up</a>
+            新用户? <a href="/signup">注册</a>
         </div>
     </div>
 </div>
@@ -121,7 +121,7 @@
   $( document ).on( 'click', '#submitLogin', function onSubmitLogin(e) {
     $('#errors').html('');
     e.preventDefault();
-    $.ajax('/login', {
+    $.ajax('/api/login', {
       method: 'post',
       contentType: 'application/json',
       processData: false,
@@ -132,10 +132,9 @@
       // If the login is successful, save the JWT token and load the home page
       success: function(result) {
           if (result.result) {
-              console.log(result.data);
             window.location.href='/';
           } else {
-              alert(result.msg);
+              $('.message').addClass('error').html(result.msg);
           }
       },
       // If not, update the "errors" section on the page

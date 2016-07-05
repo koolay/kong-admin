@@ -21,7 +21,7 @@ module.exports = {
       if (!user) {
             return res.json({
                 result: false,
-                msg: 'invalid username or password'
+                msg: '无效的用户名或密码'
             });
       }
       User.comparePassword(req.param('password'), user, function(err, valid) {
@@ -29,7 +29,7 @@ module.exports = {
               return res.json(403, {err: 'forbidden'});
           }
           if (!valid) {
-              return res.json({result: false, msg: 'invalid username or password'});
+              return res.json({result: false, msg: '无效的用户名或密码'});
           } else {
               var token = jwt.sign({user: user.id}, sails.config.jwtSecret, {expiresIn: sails.config.jwtExpires});
               res.cookie('token', token);

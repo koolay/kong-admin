@@ -4,6 +4,7 @@
 
 <form method="post" class="ui form segment">
   <h2>添加用户</h2>
+  <label>username</label>
   <div class="field">
      <input placeholder="Username" name="username" type="text" >
   </div>
