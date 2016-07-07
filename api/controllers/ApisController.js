@@ -9,22 +9,34 @@ var axios = require('axios');
 
 module.exports = {
     find: function(req, res) {
-        var size = 20;
-        var offset = req.param('offset');
-        var path = '/apis?size=' + size;
-        path = offset ? path + '&offset=' + offset : path;
-
-        KongApiService.get(path, function(response) {
-            var nextUrl = response.data.next;
-            if (nextUrl) {
-                offset = url.parse(nextUrl, true).query.offset;
-            }
-
-            return res.json({
-                offset: offset,
-                items: response.data.data
+        var id = req.param('id');
+        if (id) {
+            var path = '/apis/' + id;
+            KongApiService.get(path, function(response) {
+                return res.json(response.data);
             });
-        });
+
+        } else {
+
+            var size = 20;
+            var offset = req.param('offset');
+
+            var path = '/apis?size=' + size;
+            path = offset ? path + '&offset=' + offset : path;
+
+            KongApiService.get(path, function(response) {
+                var nextUrl = response.data.next;
+                if (nextUrl) {
+                    offset = url.parse(nextUrl, true).query.offset;
+                }
+
+                return res.json({
+                    offset: offset,
+                    items: response.data.data
+                });
+            });
+
+        }
     },
 
     //DELETE /apis/<id>

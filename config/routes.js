@@ -17,14 +17,14 @@ module.exports.routes = {
 
   'get /apis': 'PageController.apis',
   'get /apis/add': 'PageController.addApi',
-  'get /apis/update': 'PageController.updateApi',
+  'get /apis/update/:id': 'PageController.updateApi',
 
   /**************  apis  *********************/
   'post /api/login': 'UsersController.login',
   'post /api/signup': 'UsersController.signup',
 
-  //'get /api/apis': 'ApisController.find',
-  //'post /api/apis': 'ApisController.create',
+  'get /api/apis/:id': 'ApisController.find',
+  'post /api/apis/:id': 'ApisController.create',
   //'put /api/apis/update': 'ApisController.update',
   //'delete /api/apis': 'ApisController.update',
 

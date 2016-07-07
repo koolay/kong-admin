@@ -27,7 +27,7 @@
                   <td>{{item.created_at }}</td>
                   <td class="vuetable-actions center aligned">
                     <button class="ui teal button"><i class="zoom icon"></i> </button>
-                    <a class="ui orange button" href="/apis/updateApi/{{item.id}}"><i class="edit icon"></i> </a>
+                    <a class="ui orange button" href="/apis/update/{{item.id}}"><i class="edit icon"></i> </a>
                     <button class="ui red button" @click="deleteApi(item)"><i class="delete icon"></i> </button>
                   </td>
               </tr>

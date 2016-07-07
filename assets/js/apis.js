@@ -8,9 +8,6 @@
         },
         methods: {
             formatDate: function(value, fmt) {},
-            viewProfile: function(id) {
-                console.log('view profile with id:', id)
-            },
             deleteApi: function(item) {
                 var self = this;
                 ui.confirm('删除确认', '确定删除删除接口' + item.name + '?', function() {

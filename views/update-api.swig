@@ -2,19 +2,21 @@
 {% set title = 'Update API' %}
 {% block body %}
 
-<form method="post" class="ui form segment">
+<div id="updateapis">
+<form method="post" class="ui form attached segment">
+  <input id="apiId" type="hidden" value="<%= req.param("id")%>"/>
   <h2>修改接口</h2>
   <label>name</label>
   <div class="field">
-     <input placeholder="Name" name="name" type="text" value="{{ name }}">
+     <input placeholder="Name" name="name" type="text" value="{{ api.name }}">
   </div>
   <label>request path</label>
   <div class="field">
-    <input placeholder="Request path" name="request_path" type="text" value="{{request_path}}">
+    <input placeholder="Request path" name="request_path" type="text" value="{{api.request_path}}">
   </div>
   <label>upstream url</label>
   <div class="field">
-    <input placeholder="Upstream url" name="upstream_url" type="text" value="{{upstream_url}}">
+    <input placeholder="Upstream url" name="upstream_url" type="text" value="{{api.upstream_url}}">
   </div>
   <div class="two fields">
     <div class="field">
@@ -33,6 +35,7 @@
   <div class="ui blue button" onclick="save()">保存</div>
   <input type="hidden" value="{{ req.param('id') }}" name="id" />
 </form>
+</div>
 
 {% endblock %}
 
@@ -98,4 +101,8 @@ function success() {
 
 }
 </script>
+{% endblock %}
+
+{% block script %}
+<script src="/js/update-api.js"></script>
 {% endblock %}
