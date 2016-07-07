@@ -13,7 +13,7 @@ module.exports.routes = {
 
   'get /consumers': 'PageController.consumers',
   'get /consumers/add': 'PageController.addConsumer',
-  'get /consumers/update': 'PageController.updateConsumer',
+  'get /consumers/update/:id': 'PageController.updateConsumer',
 
   'get /apis': 'PageController.apis',
   'get /apis/add': 'PageController.addApi',
@@ -25,6 +25,11 @@ module.exports.routes = {
 
   'get /api/apis/:id': 'ApisController.find',
   'post /api/apis/:id': 'ApisController.create',
+
+
+  'get /api/consumers/:id': 'ConsumersController.find',
+  'post /api/consumers/:id': 'ConsumersController.create',
+
   //'put /api/apis/update': 'ApisController.update',
   //'delete /api/apis': 'ApisController.update',
 

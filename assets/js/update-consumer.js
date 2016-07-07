@@ -2,46 +2,34 @@
     'use strict';
 
     var formRules = {
+
         inline: true,
         on: 'blur',
         fields: {
-            name: {
-                identifier: 'name',
+            username: {
+                identifier: 'username',
                 rules: [{
-                    type: 'regExp[/^[a-z0-9_-]{3,50}$/]',
-                    prompt: '只能是字母和数字,长度3-50'
-                }]
-            },
-            upstream_url: {
-                identifier: 'upstream_url',
-                rules: [{
-                    type: 'empty',
-                    prompt: 'url不合法'
-                }]
-            },
-            request_path: {
-                identifier: 'request_path',
-                rules: [{
-                    type: 'regExp[/^\/.+/]',
-                    prompt: '必须是/开头的路径'
+                    type: 'regExp[/^[a-z0-9_-]{3,20}$/]',
+                    prompt: '只能是字母和数字,长度3-20'
                 }]
             },
         },
         onSuccess: function() {
-            updateApi();
+            update();
             return false;
         },
         'onFailure': function() {
             return false;
         }
+
     };
 
-    function updateApi() {
+    function update() {
         var self = this;
         var formData = $('.ui.form').form('get values');
         var id = $('.ui.form').form('get value', 'id');
         var $btn = $('#btnSave').addClass('disabled');
-        axios.put('/api/apis/' + id, formData)
+        axios.put('/api/consumers/' + id, formData)
             .then(function(response) {
                 if (response.data.result) {
                     ui.alert('', '保存成功', 'success');
@@ -57,10 +45,10 @@
             });
 
     };
-    exports.updateapis = new Vue({
-        el: '#updateapis',
+    exports.updateconsumer = new Vue({
+        el: '#updateconsumer',
         data: {
-            api: {},
+            consumer: {},
             id: '',
         },
         methods: {
@@ -70,12 +58,11 @@
             },
             loadData: function() {
                 var self = this;
-                var id = self.id = $('#apiId').val();
-                var path = '/api/apis/' + id;
+                var id = self.id = $('#consumerId').val();
+                var path = '/api/consumers/' + id;
                 axios.get(path)
                     .then(function(response) {
-                        self.api = response.data;
-                        console.log(self.api);
+                        self.consumer = response.data;
                     })
                     .catch(function(err) {
                         console.log(err);

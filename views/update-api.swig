@@ -4,103 +4,38 @@
 
 <div id="updateapis">
 <form method="post" class="ui form attached segment">
-  <input id="apiId" type="hidden" value="<%= req.param("id")%>"/>
+  <input id="apiId" name="id" type="hidden" value="<%= req.param("id")%>"/>
   <h2>修改接口</h2>
   <label>name</label>
   <div class="field">
-     <input placeholder="Name" name="name" type="text" value="{{ api.name }}">
+     <input placeholder="Name" name="name" type="text" v-model="api.name">
   </div>
   <label>request path</label>
   <div class="field">
-    <input placeholder="Request path" name="request_path" type="text" value="{{api.request_path}}">
+    <input placeholder="Request path" name="request_path" type="text" v-model="api.request_path">
   </div>
   <label>upstream url</label>
   <div class="field">
-    <input placeholder="Upstream url" name="upstream_url" type="text" value="{{api.upstream_url}}">
+    <input placeholder="Upstream url" name="upstream_url" type="text" v-model="api.upstream_url">
   </div>
   <div class="two fields">
     <div class="field">
         <div class="ui checkbox">
-          <input type="checkbox" name="strip_request_path" {% if strip_request_path %} checked {% endif %}>
+          <input type="checkbox" name="strip_request_path" v-model="api.strip_request_path">
           <label>Strip request path</label>
         </div>
     </div>
     <div class="field">
         <div class="ui checkbox">
-          <input type="checkbox" name="preserve_host" {% if preserve_host %} checked {% endif %}>
+          <input type="checkbox" name="preserve_host" v-model="api.preserve_host" >
           <label>Preserve host</label>
         </div>
     </div>
   </div>
-  <div class="ui blue button" onclick="save()">保存</div>
-  <input type="hidden" value="{{ req.param('id') }}" name="id" />
+  <div id="btnSave" class="ui blue button" @click="save">保存</div>
 </form>
 </div>
 
-{% endblock %}
-
-{% block script %}
-<script type="text/javascript" >
-var rules = {
-    inline : true,
-    on     : 'blur',
-    fields : {
-       name: {
-            identifier  : 'name',
-            rules: [
-              {
-                type   : 'regExp[/^[a-z0-9_-]{3,50}$/]',
-                prompt : '只能是字母和数字,长度3-50'
-              }
-            ]
-          },
-       upstream_url: {
-            identifier  : 'upstream_url',
-            rules: [
-              {
-                type   : 'empty',
-                prompt : 'url不合法'
-              }
-            ]
-          },
-       request_path: {
-            identifier  : 'request_path',
-            rules: [
-              {
-                type   : 'regExp[/^\/.+/]',
-                prompt : '必须是/开头的路径'
-              }
-            ]
-          },
-},  onSuccess : function(){
-        success();
-        return false;
-    },
-    'onFailure': function() {
-        return false;
-    }
-};
-
-function save() {
-   $('.ui.form').form(rules).form('validate form');
-}
-function success() {
-    var formData = $('.ui.form').form('get values');
-    var id = $('.ui.form').form('get value', 'id');
-    axios.put('/apis/' + id, formData)
-    .then(function(response) {
-        if (response.data.result) {
-            ui.alert('success', 'success', response.data.data);
-            } else {
-           ui.alert('fail', 'Fail', response.data.msg);
-         }
-    })
-    .catch(function(err) {
-        ui.alert('fail', 'Fail', '修改失败');
-    });
-
-}
-</script>
 {% endblock %}
 
 {% block script %}

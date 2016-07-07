@@ -5,6 +5,10 @@
 <div id="apis">
 
 <h3 class="ui header">接口列表</h3>
+<a href="/apis/add" class="ui teal button">
+  <i class="plus icon"></i>
+    添加接口
+</a>
 <table class="vuetable ui blue striped selectable celled stackable attached table">
             <thead>
                 <tr>
@@ -36,32 +40,6 @@
 
 </div>
 
-<div class="ui basic modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Archive Old Messages
-  </div>
-  <div class="image content">
-    <div class="image">
-      <i class="archive icon"></i>
-    </div>
-    <div class="description">
-      <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-    </div>
-  </div>
-  <div class="actions">
-    <div class="two fluid ui inverted buttons">
-      <div class="ui cancel red basic inverted button">
-        <i class="remove icon"></i>
-        No
-      </div>
-      <div class="ui ok green basic inverted button">
-        <i class="checkmark icon"></i>
-        Yes
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}
 
 {% block script %}

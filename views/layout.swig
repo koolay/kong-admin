@@ -25,8 +25,12 @@
                     <a class="item" href="/consumers">用户列表</a>
                     <a class="item" href="/plugins">插件列表</a>
             <div class="right item">
-                <a class="ui inverted button">Log in</a>
-                <a class="ui inverted button">Sign Up</a>
+                {% if req.user %}
+                   <div><%= req.user.username%></div>
+                {% else %}
+                  <a class="ui inverted button" href="/login">登录</a>
+                {% endif %}
+                <a href="/signup">注册</a>
             </div>
         </div>
     </div>

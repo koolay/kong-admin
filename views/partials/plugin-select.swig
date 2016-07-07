@@ -1,5 +1,5 @@
 <div class="ui fluid search selection dropdown">
-    <input type="hidden" name="country">
+    <input type="hidden" name="name">
     <i class="dropdown icon"></i>
     <div class="default text">选择插件</div>
     <div class="menu">

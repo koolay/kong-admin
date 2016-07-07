@@ -2,14 +2,16 @@
 {% set title = 'Update Consumer' %}
 {% block body %}
 
+<div id="updateconsumer">
 <form method="post" class="ui form segment">
   <h2>修改用户</h2>
   <div class="field">
-     <input placeholder="Username" name="username" type="text" value="{{ username }}">
+     <input placeholder="Username" name="username" type="text" v-model="consumer.username">
   </div>
-  <div class="ui blue button" onclick="save()">保存</div>
-  <input type="hidden" value="{{ req.param('id') }}" name="id" />
+  <div id="btnSave" class="ui blue button" @click="save">保存</div>
+  <input id="consumerId" type="hidden" value="<%= req.param('id') %>" name="id" />
 </form>
+</div>
 
 {% endblock %}
 
@@ -58,4 +60,9 @@ function success() {
 
 }
 </script>
+{% endblock %}
+
+
+{% block script %}
+<script src="/js/update-consumer.js"></script>
 {% endblock %}

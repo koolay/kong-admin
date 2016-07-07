@@ -2,7 +2,14 @@
 {% set title = 'Plugin List' %}
 {% block body %}
 
-<table class="ui very basic table">
+<div id="plugins">
+<h3 class="ui header">插件列表</h3>
+<a href="/plugins/add" class="ui teal button">
+  <i class="plus icon"></i>
+    添加插件
+</a>
+
+<table class="vuetable ui blue striped selectable celled stackable attached table">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,35 +21,22 @@
     </tr>
   </thead>
   <tbody>
-  {% for item in data.data %}
-      <tr>
+      <tr v-for="item in items">
           <td>{{item.name}}</td>
-          <td><a href="/admin/updateApi/{{item.api_id}}" target="_self">{{item.api_name}}</a></td>
-          <td>{% if item.enabled %} 启用 {% else %} 禁用 {% endif %}</td>
+          <td><a href="/apis/update/{{item.api_id}}" target="_self">{{item.api_name}}</a></td>
+          <td>{{ item.enabled ? '启用' : '禁用' }}</td>
           <td>{{item.Config}}</td>
-          <td>{{toDate(item.created_at) }}</td>
-          <td><a href="javascript:void(0)" onclick="deleteApi('{{item.id}}', '{{item.name}}')">删除</a></td>
-          <td><a href="/admin/updatePlugin/{{item.id}}" >修改</a></td>
+          <td>{{item.created_at}}</td>
+          <td class="vuetable-actions center aligned">
+            <button class="ui teal button"><i class="zoom icon"></i> </button>
+            <a class="ui orange button" href="/plugins/update/{{item.id}}"><i class="edit icon"></i> </a>
+            <button class="ui red button" @click="delete(item)"><i class="delete icon"></i> </button>
+          </td>
       </tr>
-  {% endfor %}
   </tbody>
 </table>
-<script type="text/javascript" >
-function deleteApi(id, name) {
-    if(confirm("确定要删除接口"+name+"?")) {
-        axios.delete("/plugins/" + id).then(function(response){
-                if(response.data.result) {
-                      alert('删除成功');
-                      window.location.reload();
-                  } else {
-                    alert(response.data.msg);
-                  }
-        }).catch(function(err){
-         console.log(err);
-    })
-  }
+{% endblock %}
 
-}
-
-</script>
+{% block script %}
+<script src="/js/plugins.js"></script>
 {% endblock %}

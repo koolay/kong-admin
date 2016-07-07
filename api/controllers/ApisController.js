@@ -63,8 +63,8 @@ module.exports = {
             name: req.param('name'),
             //request_host: '',//req.param('request_host'),
             request_path: req.param('request_path'),
-            strip_request_path: req.param('strip_request_path') == true,
-            preserve_host: req.param('preserve_host') == true,
+            strip_request_path: req.param('strip_request_path') == 'on',
+            preserve_host: req.param('preserve_host') == 'on',
             upstream_url: req.param('upstream_url')
         };
         KongApiService.post('/apis', param, function(response) {
@@ -84,8 +84,8 @@ module.exports = {
             name: req.param('name'),
             //request_host: req.param('request_host'),
             request_path: req.param('request_path'),
-            strip_request_path: req.param('strip_request_path') == true,
-            preserve_host: req.param('preserve_host') == true,
+            strip_request_path: req.param('strip_request_path') == 'on',
+            preserve_host: req.param('preserve_host') == 'on',
             upstream_url: req.param('upstream_url')
         };
         KongApiService.patch('/apis/' + id, param, function(response) {

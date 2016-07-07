@@ -1,18 +1,18 @@
 (function(exports) {
     'use strict';
     exports.apis = new Vue({
-        el: '#apis',
+        el: '#plugins',
         data: {
             items: [],
             offset: '',
         },
         methods: {
             formatDate: function(value, fmt) {},
-            deleteApi: function(item) {
+            delete: function(item) {
                 var self = this;
-                ui.confirm('删除确认', '确定删除接口' + item.name + '?', function() {
+                ui.confirm('删除确认', '确定删除插件' + item.name + '?', function() {
 
-                    axios.delete("/api/apis?id=" + item.id).then(function(response) {
+                    axios.delete("/api/plugins?id=" + item.id).then(function(response) {
                         if (response.data.result) {
                             ui.alert('', '删除成功', 'success');
                             self.items.$remove(item);
@@ -28,7 +28,7 @@
             },
             loadData: function() {
                 var self = this;
-                var path = '/api/apis';
+                var path = '/api/plugins';
                 if (this.offset) {
                     path = path + '&offset=' + this.offset;
                 }
