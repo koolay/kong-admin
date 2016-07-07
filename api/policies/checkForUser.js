@@ -29,7 +29,7 @@ module.exports = function(req, res, next) {
             if (!payload.user) {return next();}
             User.findOne(payload.user, function(err, user) {
                 if (err) {return res.negotiate(err);}
-                if (!user) {return res.next();}
+                if (!user) {return next();}
                 // Save the user object on the request (i.e. "log in") and continue.
                 req.user = user;
                 return next();

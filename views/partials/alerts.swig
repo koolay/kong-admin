@@ -19,12 +19,11 @@
     <div class="content alert-content">
     </div>
     <div class="actions">
-        <div class="ui black deny button">
-            No
+        <div class="ui positive ok right labeled icon button">
+            确认
         </div>
-        <div class="ui positive right labeled icon button">
-            Yes
-            <i class="checkmark icon"></i>
+        <div class="ui cancel black deny button">
+            取消
         </div>
     </div>
 </div>

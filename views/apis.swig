@@ -5,36 +5,63 @@
 <div id="apis">
 
 <h3 class="ui header">接口列表</h3>
-<vuetable
-    api-url="/api/apis"
-    :pagination-component="paginationComponent"
-    table-wrapper="#content"
-    :fields="columns"
-    :item-actions="itemActions"
-    :per-page="perPage"
-></vuetable>
+<table class="vuetable ui blue striped selectable celled stackable attached table">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>upstream_url</th>
+                    <th>request_path</th>
+                    <th>request_host</th>
+                    <th>strip_request_path</th>
+                    <th>created at</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in items">
+                  <td>{{item.name}}</td>
+                  <td>{{item.upstream_url}}</td>
+                  <td>{{item.request_path }}</td>
+                  <td>{{item.request_host }}</td>
+                  <td>{{item.strip_request_path}}</td>
+                  <td>{{item.created_at }}</td>
+                  <td class="vuetable-actions center aligned">
+                    <button class="ui teal button"><i class="zoom icon"></i> </button>
+                    <a class="ui orange button" href="/apis/updateApi/{{item.id}}"><i class="edit icon"></i> </a>
+                    <button class="ui red button" @click="deleteApi(item)"><i class="delete icon"></i> </button>
+                  </td>
+              </tr>
+            </tbody>
+</table>
 
 </div>
 
-<script type="text/javascript" >
-
-function deleteApi(id, name) {
-    if(confirm("确定要删除接口"+name+"?")) {
-        axios.delete("/apis/" + id).then(function(response){
-                if(response.data.result) {
-                      alert('删除成功');
-                      window.location.reload();
-                  } else {
-                    alert(response.data.msg);
-                  }
-        }).catch(function(err){
-         console.log(err);
-    })
-  }
-
-}
-
-</script>
+<div class="ui basic modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Archive Old Messages
+  </div>
+  <div class="image content">
+    <div class="image">
+      <i class="archive icon"></i>
+    </div>
+    <div class="description">
+      <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="two fluid ui inverted buttons">
+      <div class="ui cancel red basic inverted button">
+        <i class="remove icon"></i>
+        No
+      </div>
+      <div class="ui ok green basic inverted button">
+        <i class="checkmark icon"></i>
+        Yes
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block script %}
