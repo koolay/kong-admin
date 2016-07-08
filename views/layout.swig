@@ -21,16 +21,22 @@
 
     <div class="ui container">
         <div class="ui large secondary inverted pointing menu">
-                    <a class="active item" href="/apis">接口列表</a>
-                    <a class="item" href="/consumers">用户列表</a>
-                    <a class="item" href="/plugins">插件列表</a>
-            <div class="right item">
+            <a class="{% if req.path.indexOf('apis') > 0 || req.path == '/' %} active {% endif %} item" href="/apis">接口列表</a>
+            <a class="{% if req.path.indexOf('consumers') > 0 %} active {% endif %} item" href="/consumers">用户列表</a>
+            <a class="{% if req.path.indexOf('plugins') > 0 %} active {% endif %} item" href="/plugins">插件列表</a>
+            <div class="right item" style="height:100px;">
                 {% if req.user %}
-                   <div><%= req.user.username%></div>
+                <div class="ui card" style="height:60px;width:60px">
+                      <div class="image">
+                        <img src="/images/steve.jpg">
+                      </div>
+                      <div class="content">
+                        <a class="header" style="font-size:13px!important;font-weight:normal;color:#fff;"><%= req.user.username%></a>
+                      </div>
+                    </div>
                 {% else %}
                   <a class="ui inverted button" href="/login">登录</a>
                 {% endif %}
-                <a href="/signup">注册</a>
             </div>
         </div>
     </div>
