@@ -7,7 +7,7 @@
 - npm install -g sails
 - npm install -g nodemon
 - npm install
-- nodemon app
+- nodemon -V app
 
 ```
 
