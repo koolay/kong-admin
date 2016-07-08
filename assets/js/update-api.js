@@ -5,8 +5,8 @@
         name: {
             identifier: 'name',
             rules: [{
-                type: 'regExp[/^[a-z0-9_-]{3,50}$/]',
-                prompt: '只能是字母和数字,长度3-50'
+                type: 'regExp[/^([A-Za-z0-9]+\.?-?_?){3,50}$/]',
+                prompt: '只能是字母和数字或`_-`,长度3-50'
             }]
         },
         upstream_url: {
