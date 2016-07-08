@@ -38,5 +38,10 @@
 {% endblock %}
 
 {% block script %}
-<script src="/js/plugins.js"></script>
+<script src="/js/list.js"></script>
+<script type="text/javascript">
+$(function(){
+list('/api/plugins', 'plugins');
+});
+</script>
 {% endblock %}

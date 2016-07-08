@@ -15,5 +15,6 @@
 {% endblock %}
 
 {% block script %}
+<script src="/js/add.js"></script>
 <script src="/js/add-consumer.js"></script>
 {% endblock %}

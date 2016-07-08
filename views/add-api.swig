@@ -36,7 +36,7 @@
 </div>
 
 {% endblock %}
-
 {% block script %}
+<script src="/js/add.js"></script>
 <script src="/js/add-api.js"></script>
 {% endblock %}

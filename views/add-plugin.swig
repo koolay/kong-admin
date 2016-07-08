@@ -25,5 +25,6 @@
 {% endblock %}
 
 {% block script %}
+<script src="/js/add.js"></script>
 <script src="/js/add-plugin.js"></script>
 {% endblock %}

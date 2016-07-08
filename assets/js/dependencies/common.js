@@ -14,9 +14,13 @@ var ui = {
         });
 
     },
-
+    loading: function() {
+        $('.dimmer').addClass('active');
+    },
+    hideLoading: function() {
+        $('.dimmer').removeClass('active');
+    },
     alert: function(title, msg, type) {
-
         swal(title, msg, type);
     }
 }
