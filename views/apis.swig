@@ -32,7 +32,7 @@
                   <td class="vuetable-actions center aligned">
                     <button class="ui teal button"><i class="zoom icon"></i> </button>
                     <a class="ui orange button" href="/apis/update/{{item.id}}"><i class="edit icon"></i> </a>
-                    <button class="ui red button" @click="deleteApi(item)"><i class="delete icon"></i> </button>
+                    <button class="ui red button" @click="delete(item)"><i class="delete icon"></i> </button>
                   </td>
               </tr>
             </tbody>
