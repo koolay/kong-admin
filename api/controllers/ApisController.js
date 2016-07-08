@@ -48,10 +48,6 @@ module.exports = {
                 msg: 'id not found'
             });
         }
-        return res.json({
-            result: true,
-            msg: 'success'
-        });
         KongApiService.delete('/apis/' + id, function(response) {
             return res.json(response);
         });
