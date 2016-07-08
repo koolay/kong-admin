@@ -34,6 +34,11 @@ module.exports.views = {
         ext: 'swig', // Or `html`, whatever you are using
           fn: function (pathName, locals, cb) {
             var swig = require('swig');
+            locals.config = locals.sails.config;
+            /* Disable Caching on Development */
+            if (locals.config.environment === 'development' ) {
+                swig.setDefaults({ cache : false })
+            }
             swig.setDefaults({varControls: ['<%=', '%>']});
             return swig.renderFile(pathName, locals, cb);
           }
