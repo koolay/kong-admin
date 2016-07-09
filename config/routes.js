@@ -12,10 +12,12 @@ module.exports.routes = {
   'get /plugins/add': 'PageController.addPlugin',
 
   'get /consumers': 'PageController.consumers',
+  'get /consumers/detail/:id': 'PageController.consumer',
   'get /consumers/add': 'PageController.addConsumer',
   'get /consumers/update/:id': 'PageController.updateConsumer',
 
   'get /apis': 'PageController.apis',
+  'get /apis/detail/:id': 'PageController.api',
   'get /apis/add': 'PageController.addApi',
   'get /apis/update/:id': 'PageController.updateApi',
 

@@ -5,10 +5,22 @@
 <div id="apis">
 
 <h3 class="ui header">接口列表</h3>
-<a href="/apis/add" class="ui teal button">
-  <i class="plus icon"></i>
-    添加接口
-</a>
+<div class="ui grid">
+    <div class="ui left aligned nine wide column">
+        <a href="/apis/add" class="ui teal button">
+          <i class="plus icon"></i>
+            添加接口
+        </a>
+    </div>
+    <div class="ui right aligned seven wide column">
+        <div class="ui labeled icon input">
+            <div class="ui label">Search:</div>
+            <input class="ui input" name="key" v-model="key">
+            <i class="search icon"></i>
+        </div>
+        <button id="btnSearch" @click="search" class="ui button primary">Go</button>
+    </div>
+</div>
 <table class="vuetable ui blue striped selectable celled stackable attached table">
             <thead>
                 <tr>
@@ -30,12 +42,24 @@
                   <td>{{item.strip_request_path}}</td>
                   <td>{{item.created_at }}</td>
                   <td class="vuetable-actions center aligned">
-                    <button class="ui teal button"><i class="zoom icon"></i> </button>
+                    <a class="ui teal button" href="/apis/detail/{{item.id}}"><i class="zoom icon"></i></a>
                     <a class="ui orange button" href="/apis/update/{{item.id}}"><i class="edit icon"></i> </a>
                     <button class="ui red button" @click="delete(item)"><i class="delete icon"></i> </button>
                   </td>
               </tr>
             </tbody>
+             <tfoot>
+    <tr><th colspan="7">
+      <div class="ui right floated pagination menu">
+        <a class="icon item">
+          <i class="left chevron icon"></i>
+        </a>
+        <a class="icon item">
+          <i class="right chevron icon"></i>
+        </a>
+      </div>
+    </th>
+  </tr></tfoot>
 </table>
 
 </div>

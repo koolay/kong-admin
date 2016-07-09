@@ -9,6 +9,7 @@
             data: {
                 items: [],
                 offset: '',
+                key: '',
             },
             methods: {
                 delete: function(item) {
@@ -29,11 +30,18 @@
                     });
 
                 },
+                search: function() {
+                    var self = this;
+                    self.loadData();
+                },
                 loadData: function() {
                     var self = this;
                     var path = self.$options.restPath;
-                    if (this.offset) {
-                        path = path + '&offset=' + this.offset;
+                    if (self.offset) {
+                        path = path + '?offset=' + this.offset;
+                    }
+                    if (self.key) {
+                        path = path + '?name=' + self.key;
                     }
                     axios.get(path)
                         .then(function(response) {

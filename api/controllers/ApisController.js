@@ -10,10 +10,21 @@ var axios = require('axios');
 module.exports = {
     find: function(req, res) {
         var id = req.param('id');
+        var name = req.param('name');
         if (id) {
             var path = '/apis/' + id;
             KongApiService.get(path, function(response) {
-                return res.json(response.data);
+                var path = '/apis/' + id + '/plugins/'
+                var api = response.data;
+                KongApiService.get(path, function(response) {
+                    var plugins = response.data.data;
+                    return res.json({
+                        master: api,
+                        additions: plugins
+                    });
+
+                });
+
             });
 
         } else {
@@ -23,6 +34,7 @@ module.exports = {
 
             var path = '/apis?size=' + size;
             path = offset ? path + '&offset=' + offset : path;
+            path = name ? path + '&name=' + name : path;
 
             KongApiService.get(path, function(response) {
                 var nextUrl = response.data.next;

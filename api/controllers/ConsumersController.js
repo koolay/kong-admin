@@ -13,7 +13,10 @@ module.exports = {
         if (id) {
             var path = '/consumers/' + id;
             KongApiService.get(path, function(response) {
-                return res.json(response.data);
+                return res.json({
+                        master: response.data,
+                        additions: []
+                });
             });
 
         } else {

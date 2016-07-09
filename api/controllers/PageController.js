@@ -27,6 +27,9 @@ module.exports = {
         return res.view('user/profile');
     },
 
+    api: function(req, res) {
+        return res.view('api-detail');
+    },
     apis: function(req, res) {
         return res.view('apis');
     },
@@ -44,6 +47,9 @@ module.exports = {
     },
     addPlugin: function(req, res) {
         return res.view('add-plugin');
+    },
+    consumer: function(req, res) {
+        return res.view('consumer-detail');
     },
     consumers: function(req, res) {
         return res.view('consumers');

@@ -42,7 +42,7 @@
     </div>
 
   </div>
-<div class="ui vertical stripe segment" style="margin-top: 50px;">
+<div class="ui vertical stripe segment">
 
   <div class="ui inverted dimmer">
     <div class="ui text loader">Loading</div>

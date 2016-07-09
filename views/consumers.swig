@@ -26,7 +26,7 @@
           <td>{{item.custom_id}}</td>
           <td>{{toDate(item.created_at) }}</td>
           <td class="vuetable-actions center aligned">
-            <button class="ui teal button"><i class="zoom icon"></i> </button>
+            <a class="ui teal button" href="/consumers/detail/{{item.id}}"><i class="zoom icon"></i> </a>
             <a class="ui orange button" href="/consumers/update/{{item.id}}"><i class="edit icon"></i> </a>
             <button class="ui red button" @click="delete(item)"><i class="delete icon"></i> </button>
           </td>
