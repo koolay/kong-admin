@@ -28,9 +28,11 @@ module.exports.routes = {
   'get /api/apis/:id': 'ApisController.find',
   'post /api/apis/:id': 'ApisController.create',
 
-
   'get /api/consumers/:id': 'ConsumersController.find',
   'post /api/consumers/:id': 'ConsumersController.create',
+  'post /api/consumers/:consumer_id/:plugin_name': 'ConsumersController.createCredential',
+  'get /api/consumers/:consumer_id/:plugin_name': 'ConsumersController.listCredential',
+  'delete /api/consumers/:consumer_id/:plugin_name/:credential_id': 'ConsumersController.deleteCredential',
 
   //'put /api/apis/update': 'ApisController.update',
   //'delete /api/apis': 'ApisController.update',

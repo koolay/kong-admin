@@ -14,8 +14,8 @@ module.exports = {
             var path = '/consumers/' + id;
             KongApiService.get(path, function(response) {
                 return res.json({
-                        master: response.data,
-                        additions: []
+                    master: response.data,
+                    additions: []
                 });
             });
 
@@ -81,5 +81,63 @@ module.exports = {
         KongApiService.patch('/consumers/' + id, param, function(response) {
             return res.json(response);
         });
-    }
+    },
+
+    //Create a credential
+    createCredential: function(req, res) {
+        var id = req.param('consumer_id');
+        var pluginName = req.param('plugin_name');
+        if (!id || !pluginName) {
+            sails.log.info('false');
+
+            return res.json({
+                result: false,
+                msg: 'invalid params'
+            });
+        }
+        var path = '/consumers/' + id + '/' + pluginName;
+        KongApiService.post(path, {}, function(response) {
+            sails.log.info(response);
+            return res.json({
+                result: true,
+                data: response
+            });
+
+        });
+    },
+    listCredential: function(req, res) {
+        var id = req.param('consumer_id');
+        var pluginName = req.param('plugin_name');
+        if (!id || !pluginName) {
+            return res.json({
+                result: false,
+                msg: 'invalid params'
+            });
+        }
+        var path = '/consumers/' + id + '/' + pluginName;
+        KongApiService.get(path, function(response) {
+            return res.json({
+                result: true,
+                items: response.data.data
+            });
+
+        });
+
+    },
+    deleteCredential: function(req, res) {
+        var id = req.param('consumer_id');
+        var pluginName = req.param('plugin_name');
+        var credentialId = req.param('credential_id');
+        if (!id || !pluginName || !credentialId) {
+            return res.json({
+                result: false,
+                msg: 'invalid params'
+            });
+        }
+        var path = '/consumers/' + id + '/' + pluginName + '/' + credentialId;
+        KongApiService.delete(path, function(response) {
+            return res.json(response);
+        });
+    },
+
 };

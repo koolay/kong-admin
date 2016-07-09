@@ -20,8 +20,7 @@
                         var path = restPath + '/' + id;
                         axios.get(path)
                             .then(function(response) {
-                                self.item = response.data;
-                                console.log(self.item);
+                                self.item = response.data.master;
                             })
                             .catch(function(err) {
                                 console.log(err);

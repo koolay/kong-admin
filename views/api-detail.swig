@@ -27,7 +27,12 @@
         </div>
     </div>
     <h2>该接口插件信息</h2>
-
+    <div class="ui left aligned nine wide column">
+        <a href="/plugins/add?apiname={{ item.name }}" class="ui teal button">
+          <i class="plus icon"></i>
+            添加插件
+        </a>
+    </div>
 <table class="vuetable ui blue striped selectable celled stackable attached table">
             <thead>
                 <tr>
@@ -54,7 +59,7 @@
 </div>
 {% endblock %}
 {% block script %}
-<script src="/js/detail.js"></script>
+<script src="/js/api-detail.js"></script>
 <script type="text/javascript">
 $(function(){
     detail('/api/apis/' + $('#txtId').val(), 'apidetail');

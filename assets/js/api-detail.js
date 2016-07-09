@@ -7,7 +7,7 @@
             data: {
                 id: '',
                 item: {},
-                additions: ''
+                additions: {}
             },
             methods: {
                 loadData: function() {
