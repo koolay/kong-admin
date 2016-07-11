@@ -11,7 +11,7 @@
   </div>
   <label>接口名称</label>
   <div class="field">
-    <input placeholder="Api name" name="api" type="text" value="<%= req.param('apiname')%>">
+    <input placeholder="Api name" name="api" type="text" value="<%= req.param('apiname') || ''%>">
   </div>
   {% include 'plugins/jwt.swig' %}
   <div class="ui blue button" @click="save">保存</div>

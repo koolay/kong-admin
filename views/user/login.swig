@@ -58,7 +58,7 @@
         </form>
 
         <div class="ui message">
-            新用户? <a href="/signup">注册</a>
+            新用户请联系管理员注册
         </div>
     </div>
 </div>
