@@ -16,7 +16,7 @@
                     var self = this;
                     ui.confirm('删除确认', '确定删除' + self.$options.name + item.name + '?', function() {
 
-                        axios.delete(self.$options.restPath + "?id=" + item.id).then(function(response) {
+                        axios.delete(self.$options.restPath + "/" + item.id).then(function(response) {
                             if (response.data.result) {
                                 ui.alert('', '删除成功', 'success');
                                 self.items.$remove(item);

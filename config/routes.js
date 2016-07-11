@@ -25,23 +25,24 @@ module.exports.routes = {
   'post /api/login': 'UsersController.login',
   'post /api/signup': 'UsersController.signup',
 
+  'get /api/apis': 'ApisController.find',
   'get /api/apis/:id': 'ApisController.find',
-  'post /api/apis/:id': 'ApisController.create',
+  'post /api/apis': 'ApisController.create',
+  'put /api/apis/:id': 'ApisController.update',
+  'delete /api/apis/:id': 'ApisController.destroy',
 
+  'get /api/consumers': 'ConsumersController.find',
   'get /api/consumers/:id': 'ConsumersController.find',
-  'post /api/consumers/:id': 'ConsumersController.create',
-  'post /api/consumers/:consumer_id/:plugin_name': 'ConsumersController.createCredential',
   'get /api/consumers/:consumer_id/:plugin_name': 'ConsumersController.listCredential',
+  'post /api/consumers': 'ConsumersController.create',
+  'put /api/consumers/:id': 'ConsumersController.update',
+  'post /api/consumers/:consumer_id/:plugin_name': 'ConsumersController.createCredential',
   'delete /api/consumers/:consumer_id/:plugin_name/:credential_id': 'ConsumersController.deleteCredential',
+  'delete /api/consumers/:id': 'ConsumersController.destroy',
 
-  //'put /api/apis/update': 'ApisController.update',
-  //'delete /api/apis': 'ApisController.update',
-
-  //'get /api/plugs': 'PluginsController.find',
-  //'post /api/plugs/create': 'PluginsController.create',
-  //'post /api/plugs/update': 'PluginsController.update',
-
-  //'post /api/users/create': 'UsersController.create',
-  //'post /api/users/update': 'UsersController.update',
+  'get /api/plugins': 'PluginsController.find',
+  'get /api/plugins/:id': 'PluginsController.find',
+  'post /api/plugins': 'PluginsController.create',
+  'delete /api/plugins/:id': 'PluginsController.destroy',
 
 };

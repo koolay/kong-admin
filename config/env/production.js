@@ -11,30 +11,8 @@
  */
 
 module.exports = {
-
-  /***************************************************************************
-   * Set the default database connection for models in the production        *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
-
-  // models: {
-  //   connection: 'someMysqlServer'
-  // },
-
-  /***************************************************************************
-   * Set the port in the production environment to 80                        *
-   ***************************************************************************/
-
-  // port: 80,
-
-  /***************************************************************************
-   * Set the log level in production environment to "silent"                 *
-   ***************************************************************************/
-
-  // log: {
-  //   level: "silent"
-  // }
-  jwtSecret: 'mysuperprodsecret',
-  jwtExpires: 90000,
-  kongApi: 'http://127.0.0.1:8001'
+    port: process.env.PORT,
+    jwtSecret: process.env.JWT_SECRET,
+    jwtExpires: process.env.JWT_EXPIRESE,
+    kongApi: process.env.KONG_API
 };

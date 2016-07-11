@@ -1,0 +1,15 @@
+[template]
+src = "env.tmpl"
+dest = "./../../.env"
+prefix = "kongadmin"
+keys = [
+    "/log/level",
+    "/jwt/secret",
+    "/jwt/expires",
+    "/kong/api",
+    "/db/host",
+    "/db/port",
+    "/db/user",
+    "/db/pwd",
+    "/db/database"
+]

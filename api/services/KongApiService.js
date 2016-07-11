@@ -4,7 +4,7 @@ var kongApi = sails.config.kongApi;
 
 var errorHandle = function(error) {
   if (error instanceof Error) {
-    console.log(error);
+    sails.log.error(error);
     return {result: false, msg: 'server error'};
   } else {
     return {result: false, msg: JSON.stringify(error.data), code: error.status};

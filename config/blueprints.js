@@ -1,6 +1,6 @@
 module.exports.blueprints = {
-    restPrefix: '/api',
+    //restPrefix: '/api',
     actions: false,
-    rest: true,
+    rest: false,
     shortcuts: false
 };

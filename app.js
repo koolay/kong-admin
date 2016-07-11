@@ -53,7 +53,7 @@ process.chdir(__dirname);
     }
   }
 
-
   // Start server
+  require('dotenv').config();
   sails.lift(rc('sails'));
 })();

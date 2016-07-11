@@ -11,16 +11,8 @@
  */
 
 module.exports = {
-
-  /***************************************************************************
-   * Set the default database connection for models in the development       *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
-
-  // models: {
-  //   connection: 'someMongodbServer'
-  // }
-  jwtSecret: 'mysuperdevsecret',
-  jwtExpires: 90000,
-  kongApi: 'http://test.mypaas.com.cn:10081'
+    port: process.env.PORT,
+    jwtSecret: process.env.JWT_SECRET,
+    jwtExpires: process.env.JWT_EXPIRESE,
+    kongApi: process.env.KONG_API
 };
