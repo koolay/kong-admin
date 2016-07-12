@@ -19,7 +19,7 @@
   <div class="two fields">
     <div class="field">
         <div class="ui checkbox">
-          <input type="checkbox" name="strip_request_path">
+          <input type="checkbox" name="strip_request_path" checked>
           <label>Strip request path</label>
         </div>
     </div>

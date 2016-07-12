@@ -4,6 +4,7 @@
     <div class="default text">选择插件</div>
     <div class="menu">
         <div class="item" data-value="jwt">jwt</div>
+        <div class="item" data-value="key-auth">key-auth</div>
     </div>
 </div>
 

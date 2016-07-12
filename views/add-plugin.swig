@@ -11,9 +11,10 @@
   </div>
   <label>接口名称</label>
   <div class="field">
-    <input placeholder="Api name" name="api" type="text" value="<%= req.param('apiname') || ''%>">
+    <input placeholder="Api name" name="api" type="text" value="<%= req.param('apiname')%>">
   </div>
-  {% include 'plugins/jwt.swig' %}
+  <plugin-jwt></plugin-jwt>
+  <plugin-key-auth></plugin-key-auth>
   <div class="ui blue button" @click="save">保存</div>
 </form>
 </div>
@@ -25,6 +26,8 @@
 {% endblock %}
 
 {% block script %}
+<script src="/js/components/plugin-jwt.js"></script>
+<script src="/js/components/plugin-key-auth.js"></script>
 <script src="/js/add.js"></script>
 <script src="/js/add-plugin.js"></script>
 {% endblock %}
