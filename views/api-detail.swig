@@ -48,7 +48,7 @@
                   <td>{{item.name}}</td>
                   <td>{{item.enabled}}</td>
                   <td>{{item.config | json}}</td>
-                  <td>{{item.created_at }}</td>
+                  <td>{{item.created_at|moment }}</td>
                   <td class="vuetable-actions center aligned">
                     <a class="ui orange button" href="/plugins/update/{{item.id}}"><i class="edit icon"></i> </a>
                     <button class="ui red button" @click="deletePlugin(item)"><i class="delete icon"></i> </button>

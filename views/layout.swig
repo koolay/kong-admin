@@ -65,6 +65,7 @@
 <script src="/js/dependencies/sweetalert.min.js"></script>
 <script src="/js/dependencies/vue.min.js"></script>
 <script src="/js/dependencies/tablesort.js"></script>
+<script src="/js/dependencies/moment.js"></script>
 
 <script type="text/javascript">
 $('.message .close')

@@ -24,7 +24,7 @@
           <td>{{item.username}}</td>
           <td>{{item.id}}</td>
           <td>{{item.custom_id}}</td>
-          <td>{{toDate(item.created_at) }}</td>
+          <td>{{item.created_at|moment }}</td>
           <td class="vuetable-actions center aligned">
             <a class="ui teal button" href="/consumers/detail/{{item.id}}"><i class="zoom icon"></i> </a>
             <a class="ui orange button" href="/consumers/update/{{item.id}}"><i class="edit icon"></i> </a>

@@ -55,6 +55,11 @@
                         });
                 },
             },
+            filters: {
+                moment: function(timestamp) {
+                    return moment(timestamp).format('YY-MM-DD HH:mm:ss');
+                }
+            },
             ready: function() {
                 ui.loading();
                 console.log('ready ..');

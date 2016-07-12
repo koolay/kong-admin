@@ -42,7 +42,7 @@
                   <td>{{item.plugins}}</td>
                   <td>{{item.request_host }}</td>
                   <td>{{item.strip_request_path}}</td>
-                  <td>{{item.created_at }}</td>
+                  <td>{{item.created_at|moment}}</td>
                   <td class="vuetable-actions center aligned">
                     <a class="ui teal button" href="/apis/detail/{{item.id}}"><i class="zoom icon"></i></a>
                     <a class="ui orange button" href="/apis/update/{{item.id}}"><i class="edit icon"></i> </a>

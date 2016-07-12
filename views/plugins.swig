@@ -26,7 +26,7 @@
           <td><a href="/apis/update/{{item.api_id}}" target="_self">{{item.api_name}}</a></td>
           <td>{{ item.enabled ? '启用' : '禁用' }}</td>
           <td>{{item.Config}}</td>
-          <td>{{item.created_at}}</td>
+          <td>{{item.created_at|moment}}</td>
           <td class="vuetable-actions center aligned">
             <button class="ui teal button"><i class="zoom icon"></i> </button>
             <a class="ui orange button" href="/plugins/update/{{item.id}}"><i class="edit icon"></i> </a>
