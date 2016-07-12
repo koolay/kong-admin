@@ -19,7 +19,7 @@
 
 <div class="ui inverted vertical masthead center aligned segment">
 
-    <div class="ui container">
+    <div class="ui" style="padding:10px;">
         <div class="ui large secondary inverted pointing menu">
             <a class="{% if req.path.indexOf('apis') > 0 || req.path == '/' %} active {% endif %} item" href="/apis">接口列表</a>
             <a class="{% if req.path.indexOf('consumers') > 0 %} active {% endif %} item" href="/consumers">用户列表</a>
@@ -47,7 +47,7 @@
   <div class="ui inverted dimmer">
     <div class="ui text loader">Loading</div>
   </div>
-    <div class="ui container">
+    <div class="ui" style="padding:10px;">
         <!-- Site content !-->
         {% block body %}{% endblock %}
         {% include 'partials/alerts.swig' %}
@@ -64,6 +64,7 @@
 <script src="/js/dependencies/axios.min.js"></script>
 <script src="/js/dependencies/sweetalert.min.js"></script>
 <script src="/js/dependencies/vue.min.js"></script>
+<script src="/js/dependencies/tablesort.js"></script>
 
 <script type="text/javascript">
 $('.message .close')
@@ -74,6 +75,7 @@ $('.message .close')
     ;
   })
 ;
+$('table').tablesort();
 </script>
 {% block script %}{% endblock %}
 </body>

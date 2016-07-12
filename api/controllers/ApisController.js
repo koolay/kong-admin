@@ -5,7 +5,6 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 var url = require('url');
-var axios = require('axios');
 
 module.exports = {
     find: function(req, res) {
@@ -42,10 +41,25 @@ module.exports = {
                     offset = url.parse(nextUrl, true).query.offset;
                 }
 
-                return res.json({
-                    offset: offset,
-                    items: response.data.data
+                async.each(response.data.data, function(item, callback) {
+                    var path = '/apis/' + item.id + '/plugins/';
+                    KongApiService.get(path, function(data) {
+                        var plugins = data.data.data;
+                        var plugins = plugins.map(function(item) {
+                            return item.name;
+                        });
+                        var pluginsStr = plugins.toString();
+                        item.plugins = pluginsStr;
+                        callback();
+                    });
+                }, function(error) {
+
+                    return res.json({
+                        offset: offset,
+                        items: response.data.data
+                    });
                 });
+
             });
 
         }

@@ -21,12 +21,13 @@
         <button id="btnSearch" @click="search" class="ui button primary">Go</button>
     </div>
 </div>
-<table class="vuetable ui blue striped selectable celled stackable attached table">
+<table class="vuetable ui blue striped selectable celled sortable stackable attached table">
             <thead>
                 <tr>
                     <th>name</th>
                     <th>upstream_url</th>
                     <th>request_path</th>
+                    <th>plugins</th>
                     <th>request_host</th>
                     <th>strip_request_path</th>
                     <th>created at</th>
@@ -38,6 +39,7 @@
                   <td>{{item.name}}</td>
                   <td>{{item.upstream_url}}</td>
                   <td>{{item.request_path }}</td>
+                  <td>{{item.plugins}}</td>
                   <td>{{item.request_host }}</td>
                   <td>{{item.strip_request_path}}</td>
                   <td>{{item.created_at }}</td>

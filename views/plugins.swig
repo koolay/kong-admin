@@ -9,7 +9,7 @@
     添加插件
 </a>
 
-<table class="vuetable ui blue striped selectable celled stackable attached table">
+<table class="vuetable ui blue striped sortable selectable celled stackable attached table">
   <thead>
     <tr>
       <th>Name</th>
