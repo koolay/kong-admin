@@ -29,7 +29,7 @@
                     var self = this;
                     ui.confirm('删除确认', '确定移除插件' + plugin.name + '?', function() {
 
-                        axios.delete('/api/plugins' + "?id=" + plugin.id).then(function(response) {
+                        axios.delete('/api/plugins/' + plugin.id).then(function(response) {
                             if (response.data.result) {
                                 ui.alert('', '删除成功', 'success');
                                 self.additions.$remove(plugin);
