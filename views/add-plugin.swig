@@ -7,27 +7,24 @@
   <h2>添加插件</h2>
   <label>插件名称</label>
   <div class="field">
-     {% include 'partials/plugin-select.swig' %}
+    <plugin-selection></plugin-selection>
   </div>
   <label>接口名称</label>
   <div class="field">
     <input placeholder="Api name" name="api" type="text" value="<%= req.param('apiname')%>">
   </div>
-  <plugin-jwt></plugin-jwt>
-  <plugin-key-auth></plugin-key-auth>
+  <component :is="selectedPlugin">
+  </component>
   <div class="ui blue button" @click="save">保存</div>
 </form>
 </div>
+{% include 'partials/plugin-selection.swig' %}
+{% include 'partials/plugin-key-auth.swig' %}
+{% include 'partials/plugin-jwt.swig' %}
 
 {% endblock %}
 
 {% block script %}
-</script>
-{% endblock %}
-
-{% block script %}
-<script src="/js/components/plugin-jwt.js"></script>
-<script src="/js/components/plugin-key-auth.js"></script>
 <script src="/js/add.js"></script>
 <script src="/js/add-plugin.js"></script>
 {% endblock %}

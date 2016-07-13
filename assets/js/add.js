@@ -6,7 +6,7 @@
         var instance = {
             vue: new Vue({
                 el: '#' + elId,
-                data: {},
+                data: { selectedPlugin: 'jwt', },
                 methods: {
                     save: function(e) {
                         var self = this;

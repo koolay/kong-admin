@@ -7,6 +7,12 @@
 
 <script src="/js/dependencies/jquery.min.js"></script>
 <script src="/semantic/semantic.min.js"></script>
+<script src="/js/dependencies/common.js"></script>
+<script src="/js/dependencies/axios.min.js"></script>
+<script src="/js/dependencies/sweetalert.min.js"></script>
+<script src="/js/dependencies/vue.min.js"></script>
+<script src="/js/dependencies/tablesort.js"></script>
+<script src="/js/dependencies/moment.js"></script>
 <!--STYLES-->
 <link rel="stylesheet" href="/styles/importer.css">
 <link rel="stylesheet" href="/styles/sweetalert.css">
@@ -60,12 +66,6 @@
 <!--SCRIPTS-->
 <script src="/js/dependencies/sails.io.js"></script>
 <!--SCRIPTS END-->
-<script src="/js/dependencies/common.js"></script>
-<script src="/js/dependencies/axios.min.js"></script>
-<script src="/js/dependencies/sweetalert.min.js"></script>
-<script src="/js/dependencies/vue.min.js"></script>
-<script src="/js/dependencies/tablesort.js"></script>
-<script src="/js/dependencies/moment.js"></script>
 
 <script type="text/javascript">
 $('.message .close')
