@@ -46,11 +46,15 @@
                     axios.get(path)
                         .then(function(response) {
                             ui.hideLoading();
+                            if (response.data.result === false) {
+                                ui.alert('出错', response.data.msg, 'error');
+                            }
                             self.items = response.data.items;
                             self.offset = response.data.offset;
                         })
                         .catch(function(err) {
                             ui.hideLoading();
+                            ui.alert('出错', '服务器端错误', 'error');
                             console.log(err);
                         });
                 },

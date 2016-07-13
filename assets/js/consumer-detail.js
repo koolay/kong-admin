@@ -7,33 +7,23 @@
                 id: '',
                 item: {},
                 additions: {
-                    jwt: [],
+                    jwt:[],
+                    'key-auth': [],
                 },
             },
             methods: {
                 loadData: function() {
                     var self = this;
-                    var getConsumerDetail = function() {
-                        var path = '/api/consumers/' + consumerId;
-                        return axios.get(path);
-                    };
-                    // load jwt credintial
-                    var getCredential = function() {
-                        return axios.get('/api/consumers/' + consumerId + '/jwt')
-                    };
-
-                    axios.all([getConsumerDetail(), getCredential()])
-                        .then(axios.spread(function(consumerResponse, credentialResponse) {
+                    var path = '/api/consumers/' + consumerId;
+                    axios.get(path)
+                        .then(function(response) {
                             ui.hideLoading();
-                            self.item = consumerResponse.data.master;
-                            self.additions.jwt = credentialResponse.data.items;
-                            console.log(self.additions);
-                        }))
+                            self.item = response.data.master;
+                        })
                         .catch(function(err) {
                             ui.hideLoading();
                             console.log(err);
                         });
-
                 },
                 deleteCredential: function(consumer, credential, pluginName) {
 
@@ -60,7 +50,7 @@
                         axios.post('/api/consumers/' + consumer.id + "/" + pluginName).then(function(response) {
                             if (response.data.result) {
                                 ui.alert('', '创建成功', 'success');
-                                self.additions.jwt.push(response.data);
+                                self.additions[pluginName].push(response.data);
                             } else {
                                 ui.alert('创建失败', response.data.msg, 'error');
                             }
@@ -69,6 +59,23 @@
                             console.log(err);
                         })
                     });
+
+                },
+                showCredential: function(consumer, pluginName) {
+
+                    ui.loading();
+                    var self = this;
+                    // load credintial
+                    axios.get('/api/consumers/' + consumerId + '/' + pluginName)
+                        .then(function(response) {
+                            ui.hideLoading();
+                            self.additions[pluginName] = response.data.items;
+                            console.log(self.additions);
+                        })
+                        .catch(function(err) {
+                            ui.hideLoading();
+                            console.log(err);
+                        });
 
                 },
             },

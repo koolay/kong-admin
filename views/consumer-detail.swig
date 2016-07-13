@@ -26,10 +26,24 @@
     <div class="ui row"></div>
     <h3>JWT插件</h3>
     <button class="ui button teal" @click="createCredential(item, 'jwt')">创建凭证</button>
+    <button class="ui button teal" @click="showCredential(item, 'jwt')">查看凭证</button>
     <div style="margin-top: 10px;" class="ui grid">
         <div v-for="credential in additions.jwt" class="row">
            <div class="two column wide right float">
               <button class="ui red button" @click="deleteCredential(item, credential, 'jwt')"><i class="delete icon"></i> </button>
+           </div>
+           <div class="fourteen wide column left float">
+               <span>{{ credential | json }}</span>
+           </div>
+        </div>
+    </div>
+    <h3>Key-auth插件</h3>
+    <button class="ui button teal" @click="createCredential(item, 'key-auth')">创建凭证</button>
+    <button class="ui button teal" @click="showCredential(item, 'key-auth')">查看凭证</button>
+    <div style="margin-top: 10px;" class="ui grid">
+        <div v-for="credential in additions['key-auth']" class="row">
+           <div class="two column wide right float">
+              <button class="ui red button" @click="deleteCredential(item, credential, 'key-auth')"><i class="delete icon"></i> </button>
            </div>
            <div class="fourteen wide column left float">
                <span>{{ credential | json }}</span>

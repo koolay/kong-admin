@@ -1,13 +1,14 @@
 
 var axios = require('axios');
 var kongApi = sails.config.kongApi;
-
+axios.defaults.headers.common['apikey'] = sails.config.kongApiKey;
 var errorHandle = function(error) {
   if (error instanceof Error) {
     sails.log.error(error);
     return {result: false, msg: 'server error'};
   } else {
-    return {result: false, msg: JSON.stringify(error.data), code: error.status};
+    sails.log.error(error);
+    return {result: false, msg: error.statusText, code: error.status};
   }
 
 };

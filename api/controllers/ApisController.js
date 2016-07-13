@@ -13,6 +13,9 @@ module.exports = {
         if (id) {
             var path = '/apis/' + id;
             KongApiService.get(path, function(response) {
+                if (response.result === false) {
+                    return res.json(response);
+                }
                 var path = '/apis/' + id + '/plugins/'
                 var api = response.data;
                 KongApiService.get(path, function(response) {
@@ -36,6 +39,9 @@ module.exports = {
             path = name ? path + '&name=' + name : path;
 
             KongApiService.get(path, function(response) {
+                if (response.result === false) {
+                    return res.json(response);
+                }
                 var nextUrl = response.data.next;
                 if (nextUrl) {
                     offset = url.parse(nextUrl, true).query.offset;
@@ -75,6 +81,9 @@ module.exports = {
             });
         }
         KongApiService.delete('/apis/' + id, function(response) {
+            if (response.result === false) {
+                return res.json(response);
+            }
             return res.json(response);
         });
     },
@@ -90,6 +99,9 @@ module.exports = {
             upstream_url: req.param('upstream_url')
         };
         KongApiService.post('/apis', param, function(response) {
+            if (response.result === false) {
+                return res.json(response);
+            }
             return res.json(response);
         });
     },
@@ -111,6 +123,9 @@ module.exports = {
             upstream_url: req.param('upstream_url')
         };
         KongApiService.patch('/apis/' + id, param, function(response) {
+            if (response.result === false) {
+                return res.json(response);
+            }
             return res.json(response);
         });
     }

@@ -14,5 +14,6 @@ module.exports = {
     port: process.env.PORT,
     jwtSecret: process.env.JWT_SECRET,
     jwtExpires: process.env.JWT_EXPIRESE,
-    kongApi: process.env.KONG_API
+    kongApi: process.env.KONG_API,
+    kongApiKey: process.env.KONG_API_KEY,
 };
