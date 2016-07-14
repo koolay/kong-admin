@@ -48,6 +48,9 @@ module.exports = {
     addPlugin: function(req, res) {
         return res.view('add-plugin');
     },
+    updatePlugin: function(req, res) {
+        return res.view('update-plugin');
+    },
     consumer: function(req, res) {
         return res.view('consumer-detail');
     },

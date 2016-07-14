@@ -14,7 +14,16 @@ module.exports = {
         if (id) {
             var path = '/plugins/' + id;
             KongApiService.get(path, function(response) {
-                return res.json(response.data);
+                if (response.result === false) {
+                    return res.json(response);
+                }
+                var apiId = response.data.api_id;
+                KongApiService.get('/apis/' + apiId, function(apiResponse) {
+                    return res.json({
+                        master: response.data,
+                        api: apiResponse.data
+                    });
+                });
             });
 
         } else {

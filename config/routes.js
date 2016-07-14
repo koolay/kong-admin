@@ -10,6 +10,7 @@ module.exports.routes = {
 
   'get /plugins': 'PageController.plugins',
   'get /plugins/add': 'PageController.addPlugin',
+  'get /plugins/update/:id': 'PageController.updatePlugin',
 
   'get /consumers': 'PageController.consumers',
   'get /consumers/detail/:id': 'PageController.consumer',
@@ -29,6 +30,7 @@ module.exports.routes = {
   'get /api/apis/:id': 'ApisController.find',
   'post /api/apis': 'ApisController.create',
   'put /api/apis/:id': 'ApisController.update',
+  'put /api/apis/:api_id/plugins/:plugin_id': 'ApisController.updatePlugin',
   'delete /api/apis/:id': 'ApisController.destroy',
 
   'get /api/consumers': 'ConsumersController.find',

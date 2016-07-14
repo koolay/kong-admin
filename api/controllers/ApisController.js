@@ -128,5 +128,27 @@ module.exports = {
             }
             return res.json(response);
         });
+    },
+
+    //修改接口插件定义
+    updatePlugin: function(req, res) {
+        var apiId = req.param('api_id');
+        var pluginId = req.param('plugin_id');
+        var body = req.body;
+        if (!apiId || !pluginId || !body) {
+            return res.json({
+                result: false,
+                msg: 'invalid params'
+            });
+        }
+
+        var restPath = '/apis/' + apiId + '/plugins/' + pluginId;
+        KongApiService.patch(restPath, body, function(response) {
+            if (response.result === false) {
+                return res.json(response);
+            }
+            return res.json(response);
+        });
+
     }
 };

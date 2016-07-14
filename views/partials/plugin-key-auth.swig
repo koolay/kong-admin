@@ -15,6 +15,6 @@
 <script>
 Vue.component('key-auth', {
     template: '#key-auth-template',
-    props: ['show'],
+    props:{ plugin: {type: Object, }},
 });
 </script>

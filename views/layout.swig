@@ -11,6 +11,7 @@
 <script src="/js/dependencies/axios.min.js"></script>
 <script src="/js/dependencies/sweetalert.min.js"></script>
 <script src="/js/dependencies/vue.min.js"></script>
+<script src="/js/dependencies/vue-filters.js"></script>
 <script src="/js/dependencies/tablesort.js"></script>
 <script src="/js/dependencies/moment.js"></script>
 <!--STYLES-->

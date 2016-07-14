@@ -7,7 +7,9 @@
                 el: '#' + elId,
                 data: {
                     item: {},
+                    additions: {},
                     id: '',
+                    selectedPlugin: 'jwt',
                 },
                 methods: {
                     save: function(e) {
@@ -15,20 +17,25 @@
                         $('.ui.form').form(instance.formRules).form('validate form');
                     },
                     loadData: function() {
+                        console.log('loading..');
                         var self = this;
                         var id = self.id = $('#itemId').val();
                         var path = restPath + '/' + id;
                         axios.get(path)
                             .then(function(response) {
+                                ui.hideLoading();
                                 self.item = response.data.master;
+                                self.additions = response.data.additions;
                             })
                             .catch(function(err) {
+                                ui.hideLoading();
                                 console.log(err);
                             });
                     },
 
                 },
                 ready: function() {
+                    ui.loading();
                     this.loadData();
                 },
 
