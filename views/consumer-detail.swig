@@ -50,6 +50,21 @@
            </div>
         </div>
     </div>
+    <h3>acl插件</h3>
+    <button class="ui button teal" @click="createGroup(item, 'acls')">添加分组</button>
+    <button class="ui button teal" @click="showCredential(item, 'acls')">查看分组</button>
+    <div style="margin-top: 10px;" class="ui grid">
+        <div v-for="aclItem in additions['acls']" class="row">
+           <div class="two column wide right float">
+              <button class="ui red button" @click="deleteCredential(item, aclItem, 'acls')"><i class="delete icon"></i> </button>
+           </div>
+           <div class="fourteen wide column left float">
+               <span>{{ aclItem | json }}</span>
+           </div>
+        </div>
+    </div>
+    <!-- ----------------------------------------------- -->
+
 </div>
 {% endblock %}
 {% block script %}

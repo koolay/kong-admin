@@ -21,6 +21,7 @@
 {% include 'partials/plugin-selection.swig' %}
 {% include 'partials/plugin-key-auth.swig' %}
 {% include 'partials/plugin-jwt.swig' %}
+{% include 'partials/plugin-acls.swig' %}
 
 {% endblock %}
 

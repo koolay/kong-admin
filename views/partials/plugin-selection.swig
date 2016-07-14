@@ -13,7 +13,7 @@ Vue.component('plugin-selection', {
     template: '#plugin-selection-template',
     props:[],
     data: function() {
-        return { items: ['jwt', 'key-auth'], };
+        return { items: ['jwt', 'key-auth', 'acl'], };
     },
     methods: {
         select: function(e) {

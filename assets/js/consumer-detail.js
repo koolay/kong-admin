@@ -9,6 +9,7 @@
                 additions: {
                     jwt:[],
                     'key-auth': [],
+                    acls: [],
                 },
             },
             methods: {
@@ -44,10 +45,11 @@
                         })
                     });
                 },
-                createCredential: function(consumer, pluginName) {
+                createCredential: function(consumer, pluginName, data) {
                     var self = this;
+                    data = data ? data : {};
                     ui.confirm('确认', '确定要为用户' + consumer.username + '创建' + pluginName + '的凭证吗?', function() {
-                        axios.post('/api/consumers/' + consumer.id + "/" + pluginName).then(function(response) {
+                        axios.post('/api/consumers/' + consumer.id + "/" + pluginName, data).then(function(response) {
                             if (response.data.result) {
                                 ui.alert('', '创建成功', 'success');
                                 self.additions[pluginName].push(response.data);
@@ -60,6 +62,12 @@
                         })
                     });
 
+                },
+                createGroup: function(consumer, pluginName) {
+                    var self = this;
+                    ui.prompt('添加用户组', '添加用户组', '组名', function(groupName) {
+                        self.createCredential(consumer, pluginName, {'group': groupName});
+                    });
                 },
                 showCredential: function(consumer, pluginName) {
 

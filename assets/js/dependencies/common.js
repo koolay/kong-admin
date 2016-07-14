@@ -14,6 +14,23 @@ var ui = {
         });
 
     },
+    prompt: function(title, msg, placeholder, cb) {
+        swal({
+            title: title,
+            text: msg,
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            inputPlaceholder: "Write something"
+        }, function(inputValue) {
+            if (inputValue === false) return false;
+            if (inputValue === "") {
+                swal.showInputError("You need to write something!");
+                return false
+            }
+            cb(inputValue);
+        });
+    },
     loading: function() {
         $('.dimmer').addClass('active');
     },

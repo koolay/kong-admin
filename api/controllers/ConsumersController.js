@@ -87,6 +87,7 @@ module.exports = {
     createCredential: function(req, res) {
         var id = req.param('consumer_id');
         var pluginName = req.param('plugin_name');
+        var data = req.body;
         if (!id || !pluginName) {
             sails.log.info('false');
 
@@ -96,8 +97,11 @@ module.exports = {
             });
         }
         var path = '/consumers/' + id + '/' + pluginName;
-        KongApiService.post(path, {}, function(response) {
-            sails.log.info(response);
+        KongApiService.post(path, data, function(response) {
+
+            if (response.result === false) {
+                return res.json(response)
+            }
             return res.json({
                 result: true,
                 data: response
