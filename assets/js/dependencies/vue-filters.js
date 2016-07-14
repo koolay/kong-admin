@@ -1,4 +1,7 @@
 Vue.filter('empty', function (value) {
+    if (value == 'undefined') {
+        return '';
+    }
     if (value == {}) {
         return '';
     }
