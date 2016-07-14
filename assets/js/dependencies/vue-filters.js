@@ -1,5 +1,5 @@
 Vue.filter('empty', function (value) {
-    if (value == 'undefined') {
+    if (value == undefined) {
         return '';
     }
     if (value == {}) {
