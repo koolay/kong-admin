@@ -8,6 +8,9 @@
   <div class="field">
      <input placeholder="Username" name="username" type="text" v-model="item.username">
   </div>
+  <div class="field">
+     <input placeholder="custom_id" name="custom_id" type="text" v-model="item.custom_id">
+  </div>
   <div id="btnSave" class="ui blue button" @click="save">保存</div>
   <input id="itemId" type="hidden" value="<%= req.param('id') %>" name="id" />
 </form>
