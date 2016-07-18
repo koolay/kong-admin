@@ -9,6 +9,9 @@
   <div class="field">
      <input placeholder="Username" name="username" type="text" >
   </div>
+  <div class="field">
+     <input placeholder="custom_id" name="custom_id" type="text">
+  </div>
   <div id="btnSave" class="ui blue button" @click="save">保存</div>
 </form>
 </div>

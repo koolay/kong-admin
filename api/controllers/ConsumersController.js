@@ -59,7 +59,7 @@ module.exports = {
     create: function(req, res) {
         var param = {
             username: req.param('username'),
-            //  custom_id: req.param('custom_id')
+            custom_id: req.param('custom_id')
         };
         KongApiService.post('/consumers', param, function(response) {
             return res.json(response);
