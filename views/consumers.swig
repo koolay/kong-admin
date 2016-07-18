@@ -28,7 +28,7 @@
           <td class="vuetable-actions center aligned">
             <a class="ui teal button" href="/consumers/detail/{{item.id}}"><i class="zoom icon"></i> </a>
             <a class="ui orange button" href="/consumers/update/{{item.id}}"><i class="edit icon"></i> </a>
-            <button class="ui red button" @click="delete(item)"><i class="delete icon"></i> </button>
+            <button class="ui red button" @click="delete(item, item.username)"><i class="delete icon"></i> </button>
           </td>
       </tr>
   </tbody>
@@ -42,7 +42,7 @@
 <script src="/js/list.js"></script>
 <script type="text/javascript">
 $(function(){
-list('/api/consumers', 'consumers');
+list('/api/consumers', 'consumers', '消费者');
 });
 </script>
 {% endblock %}

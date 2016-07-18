@@ -1,9 +1,9 @@
 (function(exports) {
     'use strict';
-    exports.list = function(restPath, elId) {
+    exports.list = function(restPath, elId, name) {
         console.log(restPath);
         return new Vue({
-            name: '接口',
+            name: name,
             restPath: restPath,
             el: '#' + elId,
             data: {
@@ -12,9 +12,9 @@
                 key: '',
             },
             methods: {
-                delete: function(item) {
+                delete: function(item, deletingName) {
                     var self = this;
-                    ui.confirm('删除确认', '确定删除' + self.$options.name + item.name + '?', function() {
+                    ui.confirm('删除确认', '确定删除' + self.$options.name + deletingName + '?', function() {
 
                         axios.delete(self.$options.restPath + "/" + item.id).then(function(response) {
                             if (response.data.result) {
