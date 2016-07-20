@@ -61,28 +61,27 @@ var KongApiService = {
     },
     batchPost: function(apiPath, paramList, cb) {
 
-        var tasks = [];
-        for (var i = 0; i < paramList.length; i++) {
-            var param = paramList[i];
-            var fn = function(callback) {
-                axios.post(kongApi + apiPath, param)
-                    .then(function(response) {
-                        callback(null, {
-                            result: true,
-                            data: JSON.stringify(response.data)
-                        });
-                    })
-                    .catch(function(error) {
-                        callback(null, errorHandle(error));
-                    });
-            };
-            tasks.push(fn);
-        }
+        var getTasks = function() {
+            return paramList.map(function(param) {
 
-        async.parallel(tasks,
+                return function(callback) {
+                    axios.post(kongApi + apiPath, param)
+                        .then(function(response) {
+                            callback(null, {
+                                result: true,
+                                data: JSON.stringify(response.data)
+                            });
+                        })
+                        .catch(function(error) {
+                            callback(null, errorHandle(error));
+                        });
+                };
+            });
+        };
+
+        async.parallel(getTasks(),
             function(err, results) {
                 var result = results[0];
-                sails.log.info(results);
                 cb(result);
             });
 
