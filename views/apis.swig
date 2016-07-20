@@ -19,10 +19,10 @@
     <div class="ui right aligned seven wide column">
         <div class="ui labeled icon input">
             <div class="ui label">Search:</div>
-            <input class="ui input" name="key" v-model="key">
+            <input class="ui input" placeholder="search by name" name="key" v-model="key" v-on:keyup.enter="search">
             <i class="search icon"></i>
         </div>
-        <button id="btnSearch" @click="search" class="ui button primary">Go</button>
+        <button id="btnSearch" @click="search"  class="ui button primary">Go</button>
     </div>
 </div>
 <table class="vuetable ui blue striped selectable celled sortable stackable attached table">
@@ -50,7 +50,7 @@
                   <td class="vuetable-actions center aligned">
                     <a class="ui teal button" href="/apis/detail/{{item.id}}"><i class="zoom icon"></i></a>
                     <a class="ui orange button" href="/apis/update/{{item.id}}"><i class="edit icon"></i> </a>
-                    <button class="ui red button" @click="delete(item, item.name)"><i class="delete icon"></i> </button>
+                    <a class="ui red button" href="javascript:;" @click="delete(item, item.name)"><i class="delete icon"></i> </a>
                   </td>
               </tr>
             </tbody>

@@ -31,7 +31,7 @@ module.exports = {
 
         } else {
 
-            var size = 20;
+            var size = 100;
             var offset = req.param('offset');
 
             var path = '/apis?size=' + size;
