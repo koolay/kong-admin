@@ -20,6 +20,7 @@ module.exports.routes = {
   'get /apis': 'PageController.apis',
   'get /apis/detail/:id': 'PageController.api',
   'get /apis/add': 'PageController.addApi',
+  'get /apis/batch/add': 'PageController.addApis',
   'get /apis/update/:id': 'PageController.updateApi',
 
   /**************  apis  *********************/
@@ -29,6 +30,7 @@ module.exports.routes = {
   'get /api/apis': 'ApisController.find',
   'get /api/apis/:id': 'ApisController.find',
   'post /api/apis': 'ApisController.create',
+  'post /api/batch/apis': 'ApisController.batchCreate',
   'put /api/apis/:id': 'ApisController.update',
   'put /api/apis/:api_id/plugins/:plugin_id': 'ApisController.updatePlugin',
   'delete /api/apis/:id': 'ApisController.destroy',

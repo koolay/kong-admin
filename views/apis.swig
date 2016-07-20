@@ -11,6 +11,10 @@
           <i class="plus icon"></i>
             添加接口
         </a>
+        <a href="/apis/batch/add" class="ui teal button">
+          <i class="plus icon"></i>
+            批量添加接口
+        </a>
     </div>
     <div class="ui right aligned seven wide column">
         <div class="ui labeled icon input">

@@ -106,6 +106,48 @@ module.exports = {
         });
     },
 
+    //POST /batch/apis
+    batchCreate: function(req, res) {
+        var content = req.param('content');
+        if (!content) {
+            return res.json({
+                result: false,
+                msg: 'empty'
+            });
+        }
+
+        try {
+            var apis = JSON.parse(content);
+        } catch (e) {
+            return res.json({
+                result: false,
+                msg: '不是有效的json格式'
+            });
+        }
+        if (!_.isArray(apis)) {
+            return res.json({
+                result: false,
+                msg: 'must be array'
+            });
+        }
+
+        var paramList = apis.map(function(api) {
+            return {
+                name: api.name,
+                request_path: api.request_path,
+                strip_request_path: api.strip_request_path,
+                preserve_host: api.preserve_host,
+                upstream_url: api.upstream_url
+            };
+
+        });
+
+        KongApiService.batchPost('/apis', paramList, function(response) {
+            return res.json(response);
+        });
+
+
+    },
     update: function(req, res) {
         var id = req.param('id');
         if (!id) {

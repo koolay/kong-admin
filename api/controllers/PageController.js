@@ -36,6 +36,9 @@ module.exports = {
     addApi: function(req, res) {
         return res.view('add-api');
     },
+    addApis: function(req, res) {
+        return res.view('add-apis');
+    },
     updateApi: function(req, res) {
 
         KongApiService.get('/apis/' + req.param('id'), function(response) {
